@@ -39,8 +39,6 @@ public class BookmeDaoImpl implements BookmeDao {
     public List getAllProf(){
         String sql = "SELECT pname FROM HETA.PROFESSOR";
 
-	//List<Professor> professors = new ArrayList<>();
-
 	List<String> professors = jdbcTemplate.queryForList(sql,String.class);
 	
 	return professors;
