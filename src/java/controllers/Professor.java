@@ -5,6 +5,8 @@
  */
 package controllers;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  *
  * @author Heta

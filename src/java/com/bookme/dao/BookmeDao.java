@@ -15,6 +15,12 @@ public interface BookmeDao {
     
     public String validateLogin(String username, String password);
     
+    public int getuserid(String username, String password);
+    
+    public String getprofid(String profname);
+    
     public List getAllProf();
+    
+    public int addappointment(int userid, String pid, java.sql.Date apdate, String aptime);
             
 }

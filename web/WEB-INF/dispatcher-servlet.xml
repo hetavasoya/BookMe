@@ -32,6 +32,11 @@
                 <prop key="index.htm">indexController</prop>
                 <prop key="login.htm">loginController</prop>  
                 <prop key="selectProf.htm">SPController</prop>                
+                <prop key="processProf">ProcController</prop> 
+                <prop key="calendarpage.htm">CalendarController</prop>  
+                <prop key="DisplayTime.htm">DisplayTimeController</prop> 
+                <prop key="Home.htm">HomeController</prop>                                                                
+                                                               
             </props>
         </property>
     </bean>
@@ -53,7 +58,20 @@
     <bean name="SPController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="selectProf" />
+    <bean name="ProcController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="processProf" />
+    <bean name="CalendarController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="calendarpage" />
+     <bean name="DisplayTimeController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="DisplayTime" />
+    <bean name="HomeController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Home" />
 
-   
     
-</beans>
+   
+</beans> 
+     

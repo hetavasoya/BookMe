@@ -6,6 +6,7 @@
 package controllers;
 
 import com.bookme.dao.BookmeDao;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.portlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -35,12 +34,14 @@ public class LoginCont {
     }
     
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String submit(Model model, @ModelAttribute("LoginBean") LoginBean loginbean, RedirectAttributes rdir){
+    public String submit1(Model model, @ModelAttribute("LoginBean") LoginBean loginbean, RedirectAttributes rdir,HttpSession session){
         if(loginbean != null && loginbean.getUserName() != null && loginbean.getPassword() !=null){
-            if(loginbean.getUserName().equals("heta") && loginbean.getPassword().equals("heta123")){               
-               rdir.addFlashAttribute("printme", bookmedao.validateLogin("heta", "password"));
-              // model.addAttribute("printme", bookmedao.validateLogin("heta", "password"));
-               return "redirect:./selectProf.htm";
+            String uname=bookmedao.validateLogin(loginbean.getUserName(),loginbean.getPassword());
+             if(uname != null){            
+               rdir.addFlashAttribute("printme", uname);
+               int id=bookmedao.getuserid(loginbean.getUserName(), loginbean.getPassword());
+               session.setAttribute("userid",id);
+               return "redirect:./Home.htm";
             }
             else{ 
                

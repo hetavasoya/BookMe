@@ -17,7 +17,7 @@
         
         <h1>Hi, ${printme}</h1>
         
-        <form:form method="post" action="processProf" commandName="pr">
+        <form:form method="post" commandName="pr">
          <form:select path="pname">
             <form:option value="" label="...." />
             <form:options items="${profList}"/>
