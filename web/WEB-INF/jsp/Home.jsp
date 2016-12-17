@@ -14,7 +14,7 @@
         <title>Welcome!</title>
     </head>
     <body>
-        <h1>Hi, ${printme}!</h1>
+        <h1>Hi,${printme}!</h1>
         <h4>All your appointments are here:</h4>
     </body>
 </html>
